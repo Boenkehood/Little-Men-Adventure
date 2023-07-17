@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <style>
+      #gameContainer {
+        position: relative;
+        width: 500px;
+        height: 400px;
+        border: 1px solid black;
+      }
+
+      .littleMan {
+        position: absolute;
+        width: 50px;
+        height: 100px;
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Little Men Adventure</h1>
+    <div id="gameContainer">
+      <div class="littleMan" id="player"></div>
+    </div>
+    <script>
+      var player = document.getElementById('player');
+      var gameContainer = document.getElementById('gameContainer');
+
+      // Set initial position of the player
+      var playerX = 50;
+      var playerY = 200;
+      player.style.left = playerX + 'px';
+      player.style.top = playerY + 'px';
+
+      // Move the player based on arrow key inputs
+      document.addEventListener('keydown', function(event) {
+        var key = event.key;
+        if (key === 'ArrowUp') {
+          playerY -= 10;
+        } else if (key === 'ArrowDown') {
+          playerY += 10;
+        } else if (key === 'ArrowLeft') {
+          playerX -= 10;
+        } else if (key === 'ArrowRight') {
+          playerX += 10;
+        }
+
+        // Update player position on the screen
+        player.style.left = playerX + 'px';
+        player.style.top = playerY + 'px';
+      });
+    </script>
+  </body>
+</html>
